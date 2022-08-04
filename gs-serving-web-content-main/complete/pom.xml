@@ -8,18 +8,18 @@
 		<version>2.7.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.nemiro54</groupId>
-	<artifactId>social-network</artifactId>
+	<groupId>com.example</groupId>
+	<artifactId>serving-web-content-complete</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>serving-web-content-initial</name>
-	<description>A simple social network project for Spring Boot</description>
+	<name>serving-web-content-complete</name>
+	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>18</java.version>
+		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-mustache</artifactId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
