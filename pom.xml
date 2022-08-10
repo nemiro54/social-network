@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.nemiro54</groupId>
 	<artifactId>social-network</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>serving-web-content-initial</name>
 	<description>A simple social network project for Spring Boot</description>
 	<properties>
