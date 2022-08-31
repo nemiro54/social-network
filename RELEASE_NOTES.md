@@ -1,5 +1,9 @@
 # Release Notes
 
+## 0.2.1-SNAPSHOT
+
+* FreeMarker added to the project
+
 ## 0.2.0-SNAPSHOT
 
 * Spring Security added to the project
