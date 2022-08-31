@@ -1,6 +1,5 @@
 ## Idea
-
-## Deployment
+The idea of this project is to gain in practice the knowledge and skills of creating Spring Boot MVC applications.
 
 ## Release Notes
 Can be found in [RELEASE_NOTES](RELEASE_NOTES.md).
