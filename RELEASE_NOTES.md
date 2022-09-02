@@ -1,5 +1,10 @@
 # Release Notes
 
+## 0.2.2-SNAPSHOT
+
+* added admin panel, user roles
+* implemented access restriction
+
 ## 0.2.1-SNAPSHOT
 
 * FreeMarker added to the project
