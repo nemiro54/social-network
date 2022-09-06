@@ -1,19 +1,30 @@
 package com.nemiro54.socialnetwork.controller;
 
 import com.nemiro54.socialnetwork.domain.Message;
+import com.nemiro54.socialnetwork.domain.User;
 import com.nemiro54.socialnetwork.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Map;
+import java.util.Objects;
+import java.util.UUID;
 
 @Controller
 public class MainController {
     private final MessageRepository messageRepository;
+
+    @Value("${upload.path}")
+    private String uploadPath;
 
     @Autowired
     public MainController(MessageRepository messageRepository) {
@@ -42,8 +53,26 @@ public class MainController {
     }
 
     @PostMapping("/main")
-    public String add(@RequestParam String text, @RequestParam String tag, Map<String, Object> model) {
-        Message message = new Message(text, tag);
+    public String add(@AuthenticationPrincipal User user,
+                      @RequestParam String text,
+                      @RequestParam String tag, Map<String, Object> model,
+                      @RequestParam("file") MultipartFile file) throws IOException {
+        Message message = new Message(text, tag, user);
+
+        if (file != null && !Objects.requireNonNull(file.getOriginalFilename()).isEmpty()) {
+            File uploadFile = new File(uploadPath);
+
+            if (!uploadFile.exists()) {
+                uploadFile.mkdir();
+            }
+
+            String uuidFile = UUID.randomUUID().toString();
+            String resultFileName = uuidFile + "." + file.getOriginalFilename();
+
+            file.transferTo(new File(uploadPath + "/" + resultFileName));
+
+            message.setFileName(resultFileName);
+        }
 
         messageRepository.save(message);
 

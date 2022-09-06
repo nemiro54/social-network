@@ -1,5 +1,9 @@
 # Release Notes
 
+## 0.3.0-SNAPSHOT
+
+* added the ability to upload files to the server
+
 ## 0.2.2-SNAPSHOT
 
 * added admin panel, user roles
